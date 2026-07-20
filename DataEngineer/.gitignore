@@ -30,7 +30,6 @@ htmlcov/
 .ruff_cache/
 
 # IDE
-.vscode/
 .idea/
 
 # OS
