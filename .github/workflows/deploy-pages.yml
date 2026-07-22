@@ -39,6 +39,17 @@ jobs:
           VITE_BASE: /GeoAI/
         run: npm run build
 
+      - name: Fix vite-plugin-cesium output path under a non-root base
+        working-directory: WebMapApp/frontend
+        env:
+          VITE_BASE: /GeoAI/
+        run: |
+          base_dir="dist${VITE_BASE%/}"
+          if [ -d "$base_dir/cesiumStatic" ]; then
+            mv "$base_dir/cesiumStatic" dist/cesiumStatic
+            rm -rf "$base_dir"
+          fi
+
       - name: Add SPA fallback for client-side routes
         working-directory: WebMapApp/frontend
         run: cp dist/index.html dist/404.html
