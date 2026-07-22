@@ -46,4 +46,5 @@ The dev server prints a local URL (default `http://localhost:5173`).
 
 ## Deployment
 
-Run `npm run build` inside `frontend/`; the compiled static assets land in `backend/static/`, ready to be served by whatever backend/static host is set up.
+- **Local / backend hosting:** Run `npm run build` inside `frontend/`; the compiled static assets land in `backend/static/`, ready to be served by whatever backend/static host is set up.
+- **GitHub Pages:** [`.github/workflows/deploy-pages.yml`](../.github/workflows/deploy-pages.yml) builds `frontend/` (with `VITE_BASE=/GeoAI/`) and deploys it to GitHub Pages automatically on every push to `main` that touches `WebMapApp/frontend/**`. GitHub Pages must be enabled once in the repo settings (Settings → Pages → Source: GitHub Actions) for the workflow to publish.
