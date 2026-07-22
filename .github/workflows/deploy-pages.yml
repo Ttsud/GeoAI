@@ -39,6 +39,10 @@ jobs:
           VITE_BASE: /GeoAI/
         run: npm run build
 
+      - name: Add SPA fallback for client-side routes
+        working-directory: WebMapApp/frontend
+        run: cp dist/index.html dist/404.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: WebMapApp/frontend/dist
